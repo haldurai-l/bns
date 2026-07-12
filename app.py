@@ -6,7 +6,10 @@ from supabase import create_client, Client
 # Replace these with your actual Supabase credentials found in Project Settings > API
 SUPABASE_URL = "https://dwjydbnrfkxcbgnwcxvp.supabase.co"
 SUPABASE_KEY = "sb_publishable_JZjgavEYkgu5VAsvng8DKA_PMnGtI71"
+url = st.secrets["SUPABASE_URL"]
+key = st.secrets["SUPABASE_KEY"]
 
+supabase = create_client(url, key)
 @st.cache_resource
 def init_supabase() -> Client:
     return create_client(SUPABASE_URL, SUPABASE_KEY)
